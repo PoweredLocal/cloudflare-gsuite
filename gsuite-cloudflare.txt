@@ -1,0 +1,24 @@
+;; Adds the following records:
+;; - MX Records: For inbound emails
+;; - TXT Records: Domain Verification, SPF & DKIM
+
+;; === MX Records ===
+@ 300 IN  MX  1   aspmx.l.google.com.
+@ 300 IN  MX  5   alt1.aspmx.l.google.com.
+@ 300 IN  MX  5   alt2.aspmx.l.google.com.
+@ 300 IN  MX  10  alt3.aspmx.l.google.com.
+@ 300 IN  MX  10  alt4.aspmx.l.google.com.
+
+;; === TXT Records ===
+;; Domain Verification
+;; YOU MUST CHANGE THIS TO YOUR GOOGLE SUPPLIED VERIFICATION
+@ 300 IN TXT "google-site-verification=132456789"
+
+
+;; DKIM
+;; UNCOMMENT AND CHANGE THIS TO YOUR DKIM OR LEAVE IT COMMENTED OUT
+;;google._domainkey 300 IN TXT "CHANGE THIS WITH YOUR DKIM"
+
+;; SPF
+;; COMMENT THIS OUT IF YOU ALREADY HAVE AN SPF AND MANUALLY UPDATE IT YOURSELF
+@ 300 IN TXT "v=spf1 include:_spf.google.com ~all"
