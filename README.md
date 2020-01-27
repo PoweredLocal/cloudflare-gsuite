@@ -10,3 +10,5 @@ Over here we use Cloudflare and also G Suite a lot, we have added enough domains
 That's all ;)
 
 ![Cloudflare DNS](img.png)
+
+Inspired by https://github.com/irazasyed/dns-zone-files who has some DNZ zone files for a stack more applications/services
