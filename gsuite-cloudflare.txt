@@ -1,7 +1,12 @@
-;; Adds the following records:
-;; - MX Records: For inbound emails
+;; Adds the following G Suite DNS records to Cloudflare:
 ;; - TXT Records: Domain Verification, SPF & DKIM
-;; - All records will use the `AUTO` from Cloudflare for TTL. An example of one set for 300 seconds is under SPF section
+;; - MX Records: For inbound emails
+;; All records will use the `AUTO` from Cloudflare for TTL. An example of one set for 300 seconds is under SPF section
+
+;; === TXT Records ===
+;; Domain Verification
+;; YOU MUST CHANGE THIS TO YOUR GOOGLE SUPPLIED VERIFICATION
+@ IN TXT "google-site-verification=132456789"
 
 ;; === MX Records ===
 @ IN  MX  1   aspmx.l.google.com.
@@ -10,19 +15,13 @@
 @ IN  MX  10  alt3.aspmx.l.google.com.
 @ IN  MX  10  alt4.aspmx.l.google.com.
 
-;; === TXT Records ===
-;; Domain Verification
-;; YOU MUST CHANGE THIS TO YOUR GOOGLE SUPPLIED VERIFICATION
-@ IN TXT "google-site-verification=132456789"
-
-
-;; DKIM
-;; UNCOMMENT AND CHANGE THIS TO YOUR DKIM OR LEAVE IT COMMENTED OUT.
-;; UPDATE PREFIX SELECTOR BELOW IF NOT USING THE `GOOGLE` DEFAULT
-;;google._domainkey IN TXT "CHANGE THIS WITH YOUR DKIM"
-
 ;; SPF
 ;; COMMENT THIS OUT IF YOU ALREADY HAVE AN SPF AND MANUALLY UPDATE IT YOURSELF
 ;; ALREADY COMMENTED OUT SPF BELOW IS WITH A TIME SET TO 300 SECONDS/5 MINUTE AS AN EXAMPLE
 ;; @ 300 IN TXT "v=spf1 include:_spf.google.com ~all"
 @ IN TXT "v=spf1 include:_spf.google.com ~all"
+
+;; DKIM
+;; UNCOMMENT AND CHANGE THIS TO YOUR DKIM OR LEAVE IT COMMENTED OUT.
+;; UPDATE PREFIX SELECTOR BELOW IF NOT USING THE `GOOGLE` DEFAULT
+;;google._domainkey IN TXT "CHANGE THIS WITH YOUR DKIM"
